@@ -163,6 +163,9 @@ func emsaPSSVerify(mHash []byte, em []byte, emBits, sLen int, hash hash.Hash) er
 	return nil
 }
 
+// SignPSS calculates the signature of hashed using RSASSA-PSS from RFC 3447 Section 8.1.
+// Note that hashed must be the result of hashing the input message using the given hash funcion.
+// salt is a random sequence of bytes whose length will be later used to verify the signature.
 func SignPSS(rand io.Reader, priv *PrivateKey, hash crypto.Hash, hashed []byte, salt []byte) (s []byte, err error) {
 	em, err := emsaPSSEncode(hashed, priv.N.BitLen()-1, salt, hash.New())
 	if err != nil {
@@ -178,6 +181,10 @@ func SignPSS(rand io.Reader, priv *PrivateKey, hash crypto.Hash, hashed []byte, 
 	return
 }
 
+// VerifyPSS verifies an RSASSA-PSS signature.
+// hashed is the result of hashing the input message using the given hash function and sig is the signature.
+// A valid signature is indicated by returning a nil error. 
+// sLen is number of bytes of the salt used to sign the message.
 func VerifyPSS(pub *PublicKey, hash crypto.Hash, hashed []byte, sig []byte, sLen int) error {
 	s := new(big.Int).SetBytes(sig)
 	m := encrypt(new(big.Int), pub, s)
@@ -194,3 +201,4 @@ func VerifyPSS(pub *PublicKey, hash crypto.Hash, hashed []byte, sig []byte, sLen
 	}
 	return nil
 }
+

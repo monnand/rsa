@@ -1,3 +1,6 @@
+// NOTE: This package has been changed and merged into Go's standard library.
+// Please consider to use tip of Go's source code if you want to use
+// RSASSA-PSS.
 package rsa
 
 import (
@@ -13,9 +16,6 @@ func emsaPSSEncode(mHash []byte, emBits int, salt []byte, hash hash.Hash) ([]byt
 	hLen := hash.Size()
 	sLen := len(salt)
 	emLen := (emBits + 7) / 8
-	em := make([]byte, emLen)
-	db := em[:emLen-sLen-hLen-2+1+sLen]
-	h := em[emLen-sLen-hLen-2+1+sLen : emLen-1]
 
 	// 1.  If the length of M is greater than the input limitation for the
 	//     hash function (2^61 - 1 octets for SHA-1), output "message too
@@ -32,6 +32,10 @@ func emsaPSSEncode(mHash []byte, emBits int, salt []byte, hash hash.Hash) ([]byt
 	if emLen < hLen+sLen+2 {
 		return nil, errors.New("crypto/rsa: encoding error")
 	}
+
+	em := make([]byte, emLen)
+	db := em[:emLen-sLen-hLen-2+1+sLen]
+	h := em[emLen-sLen-hLen-2+1+sLen : emLen-1]
 
 	// 4.  Generate a random octet string salt of length sLen; if sLen = 0,
 	//     then salt is the empty string.
@@ -183,7 +187,7 @@ func SignPSS(rand io.Reader, priv *PrivateKey, hash crypto.Hash, hashed []byte, 
 
 // VerifyPSS verifies an RSASSA-PSS signature.
 // hashed is the result of hashing the input message using the given hash function and sig is the signature.
-// A valid signature is indicated by returning a nil error. 
+// A valid signature is indicated by returning a nil error.
 // sLen is number of bytes of the salt used to sign the message.
 func VerifyPSS(pub *PublicKey, hash crypto.Hash, hashed []byte, sig []byte, sLen int) error {
 	s := new(big.Int).SetBytes(sig)
@@ -201,4 +205,3 @@ func VerifyPSS(pub *PublicKey, hash crypto.Hash, hashed []byte, sig []byte, sLen
 	}
 	return nil
 }
-

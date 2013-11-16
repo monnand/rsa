@@ -1,11 +1,12 @@
 // NOTE: This package has been changed and merged into Go's standard library.
 // Please consider to use tip of Go's source code if you want to use
 // RSASSA-PSS.
-package rsa
+package pss
 
 import (
 	"crypto"
-	. "crypto/rsa"
+	"crypto/rsa"
+
 	"errors"
 	"hash"
 	"io"
@@ -92,19 +93,19 @@ func emsaPSSVerify(mHash []byte, em []byte, emBits, sLen int, hash hash.Hash) er
 	// 2.  Let mHash = Hash(M), an octet string of length hLen.
 	hLen := hash.Size()
 	if hLen != len(mHash) {
-		return ErrVerification
+		return rsa.ErrVerification
 	}
 
 	// 3.  If emLen < hLen + sLen + 2, output "inconsistent" and stop.
 	emLen := (emBits + 7) / 8
 	if emLen < hLen+sLen+2 {
-		return ErrVerification
+		return rsa.ErrVerification
 	}
 
 	// 4.  If the rightmost octet of EM does not have hexadecimal value
 	//     0xbc, output "inconsistent" and stop.
 	if em[len(em)-1] != 0xBC {
-		return ErrVerification
+		return rsa.ErrVerification
 	}
 
 	// 5.  Let maskedDB be the leftmost emLen - hLen - 1 octets of EM, and
@@ -116,7 +117,7 @@ func emsaPSSVerify(mHash []byte, em []byte, emBits, sLen int, hash hash.Hash) er
 	//     maskedDB are not all equal to zero, output "inconsistent" and
 	//     stop.
 	if em[0]&(0xFF<<uint(8-(8*emLen-emBits))) != 0 {
-		return ErrVerification
+		return rsa.ErrVerification
 	}
 
 	// 7.  Let dbMask = MGF(H, emLen - hLen - 1).
@@ -134,11 +135,11 @@ func emsaPSSVerify(mHash []byte, em []byte, emBits, sLen int, hash hash.Hash) er
 	//     output "inconsistent" and stop.
 	for _, e := range db[:emLen-hLen-sLen-2] {
 		if e != 0x00 {
-			return ErrVerification
+			return rsa.ErrVerification
 		}
 	}
 	if db[emLen-hLen-sLen-2] != 0x01 {
-		return ErrVerification
+		return rsa.ErrVerification
 	}
 
 	// 11.  Let salt be the last sLen octets of DB.
@@ -161,7 +162,7 @@ func emsaPSSVerify(mHash []byte, em []byte, emBits, sLen int, hash hash.Hash) er
 	// 14. If H = H', output "consistent." Otherwise, output "inconsistent."
 	for i, e := range h0 {
 		if e != h[i] {
-			return ErrVerification
+			return rsa.ErrVerification
 		}
 	}
 	return nil
@@ -170,7 +171,7 @@ func emsaPSSVerify(mHash []byte, em []byte, emBits, sLen int, hash hash.Hash) er
 // SignPSS calculates the signature of hashed using RSASSA-PSS from RFC 3447 Section 8.1.
 // Note that hashed must be the result of hashing the input message using the given hash funcion.
 // salt is a random sequence of bytes whose length will be later used to verify the signature.
-func SignPSS(rand io.Reader, priv *PrivateKey, hash crypto.Hash, hashed []byte, salt []byte) (s []byte, err error) {
+func SignPSS(rand io.Reader, priv *rsa.PrivateKey, hash crypto.Hash, hashed []byte, salt []byte) (s []byte, err error) {
 	em, err := emsaPSSEncode(hashed, priv.N.BitLen()-1, salt, hash.New())
 	if err != nil {
 		return
@@ -189,13 +190,13 @@ func SignPSS(rand io.Reader, priv *PrivateKey, hash crypto.Hash, hashed []byte, 
 // hashed is the result of hashing the input message using the given hash function and sig is the signature.
 // A valid signature is indicated by returning a nil error.
 // sLen is number of bytes of the salt used to sign the message.
-func VerifyPSS(pub *PublicKey, hash crypto.Hash, hashed []byte, sig []byte, sLen int) error {
+func VerifyPSS(pub *rsa.PublicKey, hash crypto.Hash, hashed []byte, sig []byte, sLen int) error {
 	s := new(big.Int).SetBytes(sig)
 	m := encrypt(new(big.Int), pub, s)
 	emBits := pub.N.BitLen() - 1
 	emLen := (emBits + 7) / 8
 	if emLen < len(m.Bytes()) {
-		return ErrVerification
+		return rsa.ErrVerification
 	}
 	em := make([]byte, emLen)
 	copyWithLeftPad(em, m.Bytes())

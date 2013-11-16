@@ -1,4 +1,4 @@
-package rsa
+package pss
 
 import (
 	"crypto/sha1"

@@ -1,4 +1,4 @@
-package rsa
+package pss
 
 import (
 	"crypto"
@@ -12,8 +12,8 @@ import (
 )
 
 func TestPSSSign_1_1_0(t *testing.T) {
-	priv := &PrivateKey{
-		PublicKey: PublicKey{
+	priv := &rsa.PrivateKey{
+		rsa.PublicKey: rsa.PublicKey{
 			N: fromBase16("a56e4a0e701017589a5187dc7ea841d156f2ec0e36ad52a44dfeb1e61f7ad991d8c51056ffedb162b4c0f283a12a88a394dff526ab7291cbb307ceabfce0b1dfd5cd9508096d5b2b8b6df5d671ef6377c0921cb23c270a70e2598e6ff89d19f105acc2d3f0cb35f29280e1386b6f64c4ef22e1e1f20d0ce8cffb2249bd9a2137"),
 			E: 0x010001,
 		},
@@ -85,8 +85,8 @@ func TestPSSSign_1_1_0(t *testing.T) {
 }
 
 func TestPSSSign_1_2_1(t *testing.T) {
-	priv := &PrivateKey{
-		PublicKey: PublicKey{
+	priv := &rsa.PrivateKey{
+		rsa.PublicKey: rsa.PublicKey{
 			N: fromBase16("a56e4a0e701017589a5187dc7ea841d156f2ec0e36ad52a44dfeb1e61f7ad991d8c51056ffedb162b4c0f283a12a88a394dff526ab7291cbb307ceabfce0b1dfd5cd9508096d5b2b8b6df5d671ef6377c0921cb23c270a70e2598e6ff89d19f105acc2d3f0cb35f29280e1386b6f64c4ef22e1e1f20d0ce8cffb2249bd9a2137"),
 			E: 0x010001,
 		},
@@ -158,8 +158,8 @@ func TestPSSSign_1_2_1(t *testing.T) {
 }
 
 func TestPSSSign_1_3_2(t *testing.T) {
-	priv := &PrivateKey{
-		PublicKey: PublicKey{
+	priv := &rsa.PrivateKey{
+		rsa.PublicKey: rsa.PublicKey{
 			N: fromBase16("a56e4a0e701017589a5187dc7ea841d156f2ec0e36ad52a44dfeb1e61f7ad991d8c51056ffedb162b4c0f283a12a88a394dff526ab7291cbb307ceabfce0b1dfd5cd9508096d5b2b8b6df5d671ef6377c0921cb23c270a70e2598e6ff89d19f105acc2d3f0cb35f29280e1386b6f64c4ef22e1e1f20d0ce8cffb2249bd9a2137"),
 			E: 0x010001,
 		},
@@ -231,8 +231,8 @@ func TestPSSSign_1_3_2(t *testing.T) {
 }
 
 func TestPSSSign_1_4_3(t *testing.T) {
-	priv := &PrivateKey{
-		PublicKey: PublicKey{
+	priv := &rsa.PrivateKey{
+		rsa.PublicKey: rsa.PublicKey{
 			N: fromBase16("a56e4a0e701017589a5187dc7ea841d156f2ec0e36ad52a44dfeb1e61f7ad991d8c51056ffedb162b4c0f283a12a88a394dff526ab7291cbb307ceabfce0b1dfd5cd9508096d5b2b8b6df5d671ef6377c0921cb23c270a70e2598e6ff89d19f105acc2d3f0cb35f29280e1386b6f64c4ef22e1e1f20d0ce8cffb2249bd9a2137"),
 			E: 0x010001,
 		},
@@ -304,8 +304,8 @@ func TestPSSSign_1_4_3(t *testing.T) {
 }
 
 func TestPSSSign_1_5_4(t *testing.T) {
-	priv := &PrivateKey{
-		PublicKey: PublicKey{
+	priv := &rsa.PrivateKey{
+		rsa.PublicKey: rsa.PublicKey{
 			N: fromBase16("a56e4a0e701017589a5187dc7ea841d156f2ec0e36ad52a44dfeb1e61f7ad991d8c51056ffedb162b4c0f283a12a88a394dff526ab7291cbb307ceabfce0b1dfd5cd9508096d5b2b8b6df5d671ef6377c0921cb23c270a70e2598e6ff89d19f105acc2d3f0cb35f29280e1386b6f64c4ef22e1e1f20d0ce8cffb2249bd9a2137"),
 			E: 0x010001,
 		},
@@ -377,8 +377,8 @@ func TestPSSSign_1_5_4(t *testing.T) {
 }
 
 func TestPSSSign_2_1_5(t *testing.T) {
-	priv := &PrivateKey{
-		PublicKey: PublicKey{
+	priv := &rsa.PrivateKey{
+		rsa.PublicKey: rsa.PublicKey{
 			N: fromBase16("01d40c1bcf97a68ae7cdbd8a7bf3e34fa19dcca4ef75a47454375f94514d88fed006fb829f8419ff87d6315da68a1ff3a0938e9abb3464011c303ad99199cf0c7c7a8b477dce829e8844f625b115e5e9c4a59cf8f8113b6834336a2fd2689b472cbb5e5cabe674350c59b6c17e176874fb42f8fc3d176a017edc61fd326c4b33c9"),
 			E: 0x010001,
 		},
@@ -450,8 +450,8 @@ func TestPSSSign_2_1_5(t *testing.T) {
 }
 
 func TestPSSSign_2_2_6(t *testing.T) {
-	priv := &PrivateKey{
-		PublicKey: PublicKey{
+	priv := &rsa.PrivateKey{
+		rsa.PublicKey: rsa.PublicKey{
 			N: fromBase16("01d40c1bcf97a68ae7cdbd8a7bf3e34fa19dcca4ef75a47454375f94514d88fed006fb829f8419ff87d6315da68a1ff3a0938e9abb3464011c303ad99199cf0c7c7a8b477dce829e8844f625b115e5e9c4a59cf8f8113b6834336a2fd2689b472cbb5e5cabe674350c59b6c17e176874fb42f8fc3d176a017edc61fd326c4b33c9"),
 			E: 0x010001,
 		},
@@ -523,8 +523,8 @@ func TestPSSSign_2_2_6(t *testing.T) {
 }
 
 func TestPSSSign_2_3_7(t *testing.T) {
-	priv := &PrivateKey{
-		PublicKey: PublicKey{
+	priv := &rsa.PrivateKey{
+		rsa.PublicKey: rsa.PublicKey{
 			N: fromBase16("01d40c1bcf97a68ae7cdbd8a7bf3e34fa19dcca4ef75a47454375f94514d88fed006fb829f8419ff87d6315da68a1ff3a0938e9abb3464011c303ad99199cf0c7c7a8b477dce829e8844f625b115e5e9c4a59cf8f8113b6834336a2fd2689b472cbb5e5cabe674350c59b6c17e176874fb42f8fc3d176a017edc61fd326c4b33c9"),
 			E: 0x010001,
 		},
@@ -596,8 +596,8 @@ func TestPSSSign_2_3_7(t *testing.T) {
 }
 
 func TestPSSSign_2_4_8(t *testing.T) {
-	priv := &PrivateKey{
-		PublicKey: PublicKey{
+	priv := &rsa.PrivateKey{
+		rsa.PublicKey: rsa.PublicKey{
 			N: fromBase16("01d40c1bcf97a68ae7cdbd8a7bf3e34fa19dcca4ef75a47454375f94514d88fed006fb829f8419ff87d6315da68a1ff3a0938e9abb3464011c303ad99199cf0c7c7a8b477dce829e8844f625b115e5e9c4a59cf8f8113b6834336a2fd2689b472cbb5e5cabe674350c59b6c17e176874fb42f8fc3d176a017edc61fd326c4b33c9"),
 			E: 0x010001,
 		},
@@ -669,8 +669,8 @@ func TestPSSSign_2_4_8(t *testing.T) {
 }
 
 func TestPSSSign_2_5_9(t *testing.T) {
-	priv := &PrivateKey{
-		PublicKey: PublicKey{
+	priv := &rsa.PrivateKey{
+		rsa.PublicKey: rsa.PublicKey{
 			N: fromBase16("01d40c1bcf97a68ae7cdbd8a7bf3e34fa19dcca4ef75a47454375f94514d88fed006fb829f8419ff87d6315da68a1ff3a0938e9abb3464011c303ad99199cf0c7c7a8b477dce829e8844f625b115e5e9c4a59cf8f8113b6834336a2fd2689b472cbb5e5cabe674350c59b6c17e176874fb42f8fc3d176a017edc61fd326c4b33c9"),
 			E: 0x010001,
 		},
@@ -742,8 +742,8 @@ func TestPSSSign_2_5_9(t *testing.T) {
 }
 
 func TestPSSSign_3_1_10(t *testing.T) {
-	priv := &PrivateKey{
-		PublicKey: PublicKey{
+	priv := &rsa.PrivateKey{
+		rsa.PublicKey: rsa.PublicKey{
 			N: fromBase16("02f246ef451ed3eebb9a310200cc25859c048e4be798302991112eb68ce6db674e280da21feded1ae74880ca522b18db249385012827c515f0e466a1ffa691d98170574e9d0eadb087586ca48933da3cc953d95bd0ed50de10ddcb6736107d6c831c7f663e833ca4c097e700ce0fb945f88fb85fe8e5a773172565b914a471a443"),
 			E: 0x010001,
 		},
@@ -815,8 +815,8 @@ func TestPSSSign_3_1_10(t *testing.T) {
 }
 
 func TestPSSSign_3_2_11(t *testing.T) {
-	priv := &PrivateKey{
-		PublicKey: PublicKey{
+	priv := &rsa.PrivateKey{
+		rsa.PublicKey: rsa.PublicKey{
 			N: fromBase16("02f246ef451ed3eebb9a310200cc25859c048e4be798302991112eb68ce6db674e280da21feded1ae74880ca522b18db249385012827c515f0e466a1ffa691d98170574e9d0eadb087586ca48933da3cc953d95bd0ed50de10ddcb6736107d6c831c7f663e833ca4c097e700ce0fb945f88fb85fe8e5a773172565b914a471a443"),
 			E: 0x010001,
 		},
@@ -888,8 +888,8 @@ func TestPSSSign_3_2_11(t *testing.T) {
 }
 
 func TestPSSSign_3_3_12(t *testing.T) {
-	priv := &PrivateKey{
-		PublicKey: PublicKey{
+	priv := &rsa.PrivateKey{
+		rsa.PublicKey: rsa.PublicKey{
 			N: fromBase16("02f246ef451ed3eebb9a310200cc25859c048e4be798302991112eb68ce6db674e280da21feded1ae74880ca522b18db249385012827c515f0e466a1ffa691d98170574e9d0eadb087586ca48933da3cc953d95bd0ed50de10ddcb6736107d6c831c7f663e833ca4c097e700ce0fb945f88fb85fe8e5a773172565b914a471a443"),
 			E: 0x010001,
 		},
@@ -961,8 +961,8 @@ func TestPSSSign_3_3_12(t *testing.T) {
 }
 
 func TestPSSSign_3_4_13(t *testing.T) {
-	priv := &PrivateKey{
-		PublicKey: PublicKey{
+	priv := &rsa.PrivateKey{
+		rsa.PublicKey: rsa.PublicKey{
 			N: fromBase16("02f246ef451ed3eebb9a310200cc25859c048e4be798302991112eb68ce6db674e280da21feded1ae74880ca522b18db249385012827c515f0e466a1ffa691d98170574e9d0eadb087586ca48933da3cc953d95bd0ed50de10ddcb6736107d6c831c7f663e833ca4c097e700ce0fb945f88fb85fe8e5a773172565b914a471a443"),
 			E: 0x010001,
 		},
@@ -1034,8 +1034,8 @@ func TestPSSSign_3_4_13(t *testing.T) {
 }
 
 func TestPSSSign_3_5_14(t *testing.T) {
-	priv := &PrivateKey{
-		PublicKey: PublicKey{
+	priv := &rsa.PrivateKey{
+		rsa.PublicKey: rsa.PublicKey{
 			N: fromBase16("02f246ef451ed3eebb9a310200cc25859c048e4be798302991112eb68ce6db674e280da21feded1ae74880ca522b18db249385012827c515f0e466a1ffa691d98170574e9d0eadb087586ca48933da3cc953d95bd0ed50de10ddcb6736107d6c831c7f663e833ca4c097e700ce0fb945f88fb85fe8e5a773172565b914a471a443"),
 			E: 0x010001,
 		},
@@ -1107,8 +1107,8 @@ func TestPSSSign_3_5_14(t *testing.T) {
 }
 
 func TestPSSSign_4_1_15(t *testing.T) {
-	priv := &PrivateKey{
-		PublicKey: PublicKey{
+	priv := &rsa.PrivateKey{
+		rsa.PublicKey: rsa.PublicKey{
 			N: fromBase16("054adb7886447efe6f57e0368f06cf52b0a3370760d161cef126b91be7f89c421b62a6ec1da3c311d75ed50e0ab5fff3fd338acc3aa8a4e77ee26369acb81ba900fa83f5300cf9bb6c53ad1dc8a178b815db4235a9a9da0c06de4e615ea1277ce559e9c108de58c14a81aa77f5a6f8d1335494498848c8b95940740be7bf7c3705"),
 			E: 0x010001,
 		},
@@ -1180,8 +1180,8 @@ func TestPSSSign_4_1_15(t *testing.T) {
 }
 
 func TestPSSSign_4_2_16(t *testing.T) {
-	priv := &PrivateKey{
-		PublicKey: PublicKey{
+	priv := &rsa.PrivateKey{
+		rsa.PublicKey: rsa.PublicKey{
 			N: fromBase16("054adb7886447efe6f57e0368f06cf52b0a3370760d161cef126b91be7f89c421b62a6ec1da3c311d75ed50e0ab5fff3fd338acc3aa8a4e77ee26369acb81ba900fa83f5300cf9bb6c53ad1dc8a178b815db4235a9a9da0c06de4e615ea1277ce559e9c108de58c14a81aa77f5a6f8d1335494498848c8b95940740be7bf7c3705"),
 			E: 0x010001,
 		},
@@ -1253,8 +1253,8 @@ func TestPSSSign_4_2_16(t *testing.T) {
 }
 
 func TestPSSSign_4_3_17(t *testing.T) {
-	priv := &PrivateKey{
-		PublicKey: PublicKey{
+	priv := &rsa.PrivateKey{
+		rsa.PublicKey: rsa.PublicKey{
 			N: fromBase16("054adb7886447efe6f57e0368f06cf52b0a3370760d161cef126b91be7f89c421b62a6ec1da3c311d75ed50e0ab5fff3fd338acc3aa8a4e77ee26369acb81ba900fa83f5300cf9bb6c53ad1dc8a178b815db4235a9a9da0c06de4e615ea1277ce559e9c108de58c14a81aa77f5a6f8d1335494498848c8b95940740be7bf7c3705"),
 			E: 0x010001,
 		},
@@ -1326,8 +1326,8 @@ func TestPSSSign_4_3_17(t *testing.T) {
 }
 
 func TestPSSSign_4_4_18(t *testing.T) {
-	priv := &PrivateKey{
-		PublicKey: PublicKey{
+	priv := &rsa.PrivateKey{
+		rsa.PublicKey: rsa.PublicKey{
 			N: fromBase16("054adb7886447efe6f57e0368f06cf52b0a3370760d161cef126b91be7f89c421b62a6ec1da3c311d75ed50e0ab5fff3fd338acc3aa8a4e77ee26369acb81ba900fa83f5300cf9bb6c53ad1dc8a178b815db4235a9a9da0c06de4e615ea1277ce559e9c108de58c14a81aa77f5a6f8d1335494498848c8b95940740be7bf7c3705"),
 			E: 0x010001,
 		},
@@ -1399,8 +1399,8 @@ func TestPSSSign_4_4_18(t *testing.T) {
 }
 
 func TestPSSSign_4_5_19(t *testing.T) {
-	priv := &PrivateKey{
-		PublicKey: PublicKey{
+	priv := &rsa.PrivateKey{
+		rsa.PublicKey: rsa.PublicKey{
 			N: fromBase16("054adb7886447efe6f57e0368f06cf52b0a3370760d161cef126b91be7f89c421b62a6ec1da3c311d75ed50e0ab5fff3fd338acc3aa8a4e77ee26369acb81ba900fa83f5300cf9bb6c53ad1dc8a178b815db4235a9a9da0c06de4e615ea1277ce559e9c108de58c14a81aa77f5a6f8d1335494498848c8b95940740be7bf7c3705"),
 			E: 0x010001,
 		},
@@ -1472,8 +1472,8 @@ func TestPSSSign_4_5_19(t *testing.T) {
 }
 
 func TestPSSSign_5_1_20(t *testing.T) {
-	priv := &PrivateKey{
-		PublicKey: PublicKey{
+	priv := &rsa.PrivateKey{
+		rsa.PublicKey: rsa.PublicKey{
 			N: fromBase16("0d10f661f29940f5ed39aa260966deb47843679d2b6fb25b3de370f3ac7c19916391fd25fb527ebfa6a4b4df45a1759d996c4bb4ebd18828c44fc52d0191871740525f47a4b0cc8da325ed8aa676b0d0f626e0a77f07692170acac8082f42faa7dc7cd123e730e31a87985204cabcbe6670d43a2dd2b2ddef5e05392fc213bc507"),
 			E: 0x010001,
 		},
@@ -1545,8 +1545,8 @@ func TestPSSSign_5_1_20(t *testing.T) {
 }
 
 func TestPSSSign_5_2_21(t *testing.T) {
-	priv := &PrivateKey{
-		PublicKey: PublicKey{
+	priv := &rsa.PrivateKey{
+		rsa.PublicKey: rsa.PublicKey{
 			N: fromBase16("0d10f661f29940f5ed39aa260966deb47843679d2b6fb25b3de370f3ac7c19916391fd25fb527ebfa6a4b4df45a1759d996c4bb4ebd18828c44fc52d0191871740525f47a4b0cc8da325ed8aa676b0d0f626e0a77f07692170acac8082f42faa7dc7cd123e730e31a87985204cabcbe6670d43a2dd2b2ddef5e05392fc213bc507"),
 			E: 0x010001,
 		},
@@ -1618,8 +1618,8 @@ func TestPSSSign_5_2_21(t *testing.T) {
 }
 
 func TestPSSSign_5_3_22(t *testing.T) {
-	priv := &PrivateKey{
-		PublicKey: PublicKey{
+	priv := &rsa.PrivateKey{
+		rsa.PublicKey: rsa.PublicKey{
 			N: fromBase16("0d10f661f29940f5ed39aa260966deb47843679d2b6fb25b3de370f3ac7c19916391fd25fb527ebfa6a4b4df45a1759d996c4bb4ebd18828c44fc52d0191871740525f47a4b0cc8da325ed8aa676b0d0f626e0a77f07692170acac8082f42faa7dc7cd123e730e31a87985204cabcbe6670d43a2dd2b2ddef5e05392fc213bc507"),
 			E: 0x010001,
 		},
@@ -1691,8 +1691,8 @@ func TestPSSSign_5_3_22(t *testing.T) {
 }
 
 func TestPSSSign_5_4_23(t *testing.T) {
-	priv := &PrivateKey{
-		PublicKey: PublicKey{
+	priv := &rsa.PrivateKey{
+		rsa.PublicKey: rsa.PublicKey{
 			N: fromBase16("0d10f661f29940f5ed39aa260966deb47843679d2b6fb25b3de370f3ac7c19916391fd25fb527ebfa6a4b4df45a1759d996c4bb4ebd18828c44fc52d0191871740525f47a4b0cc8da325ed8aa676b0d0f626e0a77f07692170acac8082f42faa7dc7cd123e730e31a87985204cabcbe6670d43a2dd2b2ddef5e05392fc213bc507"),
 			E: 0x010001,
 		},
@@ -1764,8 +1764,8 @@ func TestPSSSign_5_4_23(t *testing.T) {
 }
 
 func TestPSSSign_5_5_24(t *testing.T) {
-	priv := &PrivateKey{
-		PublicKey: PublicKey{
+	priv := &rsa.PrivateKey{
+		rsa.PublicKey: rsa.PublicKey{
 			N: fromBase16("0d10f661f29940f5ed39aa260966deb47843679d2b6fb25b3de370f3ac7c19916391fd25fb527ebfa6a4b4df45a1759d996c4bb4ebd18828c44fc52d0191871740525f47a4b0cc8da325ed8aa676b0d0f626e0a77f07692170acac8082f42faa7dc7cd123e730e31a87985204cabcbe6670d43a2dd2b2ddef5e05392fc213bc507"),
 			E: 0x010001,
 		},
@@ -1837,8 +1837,8 @@ func TestPSSSign_5_5_24(t *testing.T) {
 }
 
 func TestPSSSign_6_1_25(t *testing.T) {
-	priv := &PrivateKey{
-		PublicKey: PublicKey{
+	priv := &rsa.PrivateKey{
+		rsa.PublicKey: rsa.PublicKey{
 			N: fromBase16("164ca31cff609f3a0e7101b039f2e4fe6dd37519ab98598d179e174996598071f47d3a04559158d7be373cf1aa53f0aa6ef09039e5678c2a4c63900514c8c4f8aaed5de12a5f10b09c311af8c0ffb5b7a297f2efc63b8d6b0510931f0b98e48bf5fc6ec4e7b8db1ffaeb08c38e02adb8f03a48229c99e969431f61cb8c4dc698d1"),
 			E: 0x010001,
 		},
@@ -1910,8 +1910,8 @@ func TestPSSSign_6_1_25(t *testing.T) {
 }
 
 func TestPSSSign_6_2_26(t *testing.T) {
-	priv := &PrivateKey{
-		PublicKey: PublicKey{
+	priv := &rsa.PrivateKey{
+		rsa.PublicKey: rsa.PublicKey{
 			N: fromBase16("164ca31cff609f3a0e7101b039f2e4fe6dd37519ab98598d179e174996598071f47d3a04559158d7be373cf1aa53f0aa6ef09039e5678c2a4c63900514c8c4f8aaed5de12a5f10b09c311af8c0ffb5b7a297f2efc63b8d6b0510931f0b98e48bf5fc6ec4e7b8db1ffaeb08c38e02adb8f03a48229c99e969431f61cb8c4dc698d1"),
 			E: 0x010001,
 		},
@@ -1983,8 +1983,8 @@ func TestPSSSign_6_2_26(t *testing.T) {
 }
 
 func TestPSSSign_6_3_27(t *testing.T) {
-	priv := &PrivateKey{
-		PublicKey: PublicKey{
+	priv := &rsa.PrivateKey{
+		rsa.PublicKey: rsa.PublicKey{
 			N: fromBase16("164ca31cff609f3a0e7101b039f2e4fe6dd37519ab98598d179e174996598071f47d3a04559158d7be373cf1aa53f0aa6ef09039e5678c2a4c63900514c8c4f8aaed5de12a5f10b09c311af8c0ffb5b7a297f2efc63b8d6b0510931f0b98e48bf5fc6ec4e7b8db1ffaeb08c38e02adb8f03a48229c99e969431f61cb8c4dc698d1"),
 			E: 0x010001,
 		},
@@ -2056,8 +2056,8 @@ func TestPSSSign_6_3_27(t *testing.T) {
 }
 
 func TestPSSSign_6_4_28(t *testing.T) {
-	priv := &PrivateKey{
-		PublicKey: PublicKey{
+	priv := &rsa.PrivateKey{
+		rsa.PublicKey: rsa.PublicKey{
 			N: fromBase16("164ca31cff609f3a0e7101b039f2e4fe6dd37519ab98598d179e174996598071f47d3a04559158d7be373cf1aa53f0aa6ef09039e5678c2a4c63900514c8c4f8aaed5de12a5f10b09c311af8c0ffb5b7a297f2efc63b8d6b0510931f0b98e48bf5fc6ec4e7b8db1ffaeb08c38e02adb8f03a48229c99e969431f61cb8c4dc698d1"),
 			E: 0x010001,
 		},
@@ -2129,8 +2129,8 @@ func TestPSSSign_6_4_28(t *testing.T) {
 }
 
 func TestPSSSign_6_5_29(t *testing.T) {
-	priv := &PrivateKey{
-		PublicKey: PublicKey{
+	priv := &rsa.PrivateKey{
+		rsa.PublicKey: rsa.PublicKey{
 			N: fromBase16("164ca31cff609f3a0e7101b039f2e4fe6dd37519ab98598d179e174996598071f47d3a04559158d7be373cf1aa53f0aa6ef09039e5678c2a4c63900514c8c4f8aaed5de12a5f10b09c311af8c0ffb5b7a297f2efc63b8d6b0510931f0b98e48bf5fc6ec4e7b8db1ffaeb08c38e02adb8f03a48229c99e969431f61cb8c4dc698d1"),
 			E: 0x010001,
 		},
@@ -2202,8 +2202,8 @@ func TestPSSSign_6_5_29(t *testing.T) {
 }
 
 func TestPSSSign_7_1_30(t *testing.T) {
-	priv := &PrivateKey{
-		PublicKey: PublicKey{
+	priv := &rsa.PrivateKey{
+		rsa.PublicKey: rsa.PublicKey{
 			N: fromBase16("37c9da4a66c8c408b8da27d0c9d79f8ccb1eafc1d2fe48746d940b7c4ef5dee18ad12647cefaa0c4b3188b221c515386759b93f02024b25ab9242f8357d8f3fd49640ee5e643eaf6c64deefa7089727c8ff03993333915c6ef21bf5975b6e50d118b51008ec33e9f01a0a545a10a836a43ddbca9d8b5c5d3548022d7064ea29ab3"),
 			E: 0x010001,
 		},
@@ -2275,8 +2275,8 @@ func TestPSSSign_7_1_30(t *testing.T) {
 }
 
 func TestPSSSign_7_2_31(t *testing.T) {
-	priv := &PrivateKey{
-		PublicKey: PublicKey{
+	priv := &rsa.PrivateKey{
+		rsa.PublicKey: rsa.PublicKey{
 			N: fromBase16("37c9da4a66c8c408b8da27d0c9d79f8ccb1eafc1d2fe48746d940b7c4ef5dee18ad12647cefaa0c4b3188b221c515386759b93f02024b25ab9242f8357d8f3fd49640ee5e643eaf6c64deefa7089727c8ff03993333915c6ef21bf5975b6e50d118b51008ec33e9f01a0a545a10a836a43ddbca9d8b5c5d3548022d7064ea29ab3"),
 			E: 0x010001,
 		},
@@ -2348,8 +2348,8 @@ func TestPSSSign_7_2_31(t *testing.T) {
 }
 
 func TestPSSSign_7_3_32(t *testing.T) {
-	priv := &PrivateKey{
-		PublicKey: PublicKey{
+	priv := &rsa.PrivateKey{
+		rsa.PublicKey: rsa.PublicKey{
 			N: fromBase16("37c9da4a66c8c408b8da27d0c9d79f8ccb1eafc1d2fe48746d940b7c4ef5dee18ad12647cefaa0c4b3188b221c515386759b93f02024b25ab9242f8357d8f3fd49640ee5e643eaf6c64deefa7089727c8ff03993333915c6ef21bf5975b6e50d118b51008ec33e9f01a0a545a10a836a43ddbca9d8b5c5d3548022d7064ea29ab3"),
 			E: 0x010001,
 		},
@@ -2421,8 +2421,8 @@ func TestPSSSign_7_3_32(t *testing.T) {
 }
 
 func TestPSSSign_7_4_33(t *testing.T) {
-	priv := &PrivateKey{
-		PublicKey: PublicKey{
+	priv := &rsa.PrivateKey{
+		rsa.PublicKey: rsa.PublicKey{
 			N: fromBase16("37c9da4a66c8c408b8da27d0c9d79f8ccb1eafc1d2fe48746d940b7c4ef5dee18ad12647cefaa0c4b3188b221c515386759b93f02024b25ab9242f8357d8f3fd49640ee5e643eaf6c64deefa7089727c8ff03993333915c6ef21bf5975b6e50d118b51008ec33e9f01a0a545a10a836a43ddbca9d8b5c5d3548022d7064ea29ab3"),
 			E: 0x010001,
 		},
@@ -2494,8 +2494,8 @@ func TestPSSSign_7_4_33(t *testing.T) {
 }
 
 func TestPSSSign_7_5_34(t *testing.T) {
-	priv := &PrivateKey{
-		PublicKey: PublicKey{
+	priv := &rsa.PrivateKey{
+		rsa.PublicKey: rsa.PublicKey{
 			N: fromBase16("37c9da4a66c8c408b8da27d0c9d79f8ccb1eafc1d2fe48746d940b7c4ef5dee18ad12647cefaa0c4b3188b221c515386759b93f02024b25ab9242f8357d8f3fd49640ee5e643eaf6c64deefa7089727c8ff03993333915c6ef21bf5975b6e50d118b51008ec33e9f01a0a545a10a836a43ddbca9d8b5c5d3548022d7064ea29ab3"),
 			E: 0x010001,
 		},
@@ -2567,8 +2567,8 @@ func TestPSSSign_7_5_34(t *testing.T) {
 }
 
 func TestPSSSign_8_1_35(t *testing.T) {
-	priv := &PrivateKey{
-		PublicKey: PublicKey{
+	priv := &rsa.PrivateKey{
+		rsa.PublicKey: rsa.PublicKey{
 			N: fromBase16("495370a1fb18543c16d3631e3163255df62be6eee890d5f25509e4f778a8ea6fbbbcdf85dff64e0d972003ab3681fbba6dd41fd541829b2e582de9f2a4a4e0a2d0900bef4753db3cee0ee06c7dfae8b1d53b5953218f9cceea695b08668edeaadced9463b1d790d5ebf27e9115b46cad4d9a2b8efab0561b0810344739ada0733f"),
 			E: 0x010001,
 		},
@@ -2640,8 +2640,8 @@ func TestPSSSign_8_1_35(t *testing.T) {
 }
 
 func TestPSSSign_8_2_36(t *testing.T) {
-	priv := &PrivateKey{
-		PublicKey: PublicKey{
+	priv := &rsa.PrivateKey{
+		rsa.PublicKey: rsa.PublicKey{
 			N: fromBase16("495370a1fb18543c16d3631e3163255df62be6eee890d5f25509e4f778a8ea6fbbbcdf85dff64e0d972003ab3681fbba6dd41fd541829b2e582de9f2a4a4e0a2d0900bef4753db3cee0ee06c7dfae8b1d53b5953218f9cceea695b08668edeaadced9463b1d790d5ebf27e9115b46cad4d9a2b8efab0561b0810344739ada0733f"),
 			E: 0x010001,
 		},
@@ -2713,8 +2713,8 @@ func TestPSSSign_8_2_36(t *testing.T) {
 }
 
 func TestPSSSign_8_3_37(t *testing.T) {
-	priv := &PrivateKey{
-		PublicKey: PublicKey{
+	priv := &rsa.PrivateKey{
+		rsa.PublicKey: rsa.PublicKey{
 			N: fromBase16("495370a1fb18543c16d3631e3163255df62be6eee890d5f25509e4f778a8ea6fbbbcdf85dff64e0d972003ab3681fbba6dd41fd541829b2e582de9f2a4a4e0a2d0900bef4753db3cee0ee06c7dfae8b1d53b5953218f9cceea695b08668edeaadced9463b1d790d5ebf27e9115b46cad4d9a2b8efab0561b0810344739ada0733f"),
 			E: 0x010001,
 		},
@@ -2786,8 +2786,8 @@ func TestPSSSign_8_3_37(t *testing.T) {
 }
 
 func TestPSSSign_8_4_38(t *testing.T) {
-	priv := &PrivateKey{
-		PublicKey: PublicKey{
+	priv := &rsa.PrivateKey{
+		rsa.PublicKey: rsa.PublicKey{
 			N: fromBase16("495370a1fb18543c16d3631e3163255df62be6eee890d5f25509e4f778a8ea6fbbbcdf85dff64e0d972003ab3681fbba6dd41fd541829b2e582de9f2a4a4e0a2d0900bef4753db3cee0ee06c7dfae8b1d53b5953218f9cceea695b08668edeaadced9463b1d790d5ebf27e9115b46cad4d9a2b8efab0561b0810344739ada0733f"),
 			E: 0x010001,
 		},
@@ -2859,8 +2859,8 @@ func TestPSSSign_8_4_38(t *testing.T) {
 }
 
 func TestPSSSign_8_5_39(t *testing.T) {
-	priv := &PrivateKey{
-		PublicKey: PublicKey{
+	priv := &rsa.PrivateKey{
+		rsa.PublicKey: rsa.PublicKey{
 			N: fromBase16("495370a1fb18543c16d3631e3163255df62be6eee890d5f25509e4f778a8ea6fbbbcdf85dff64e0d972003ab3681fbba6dd41fd541829b2e582de9f2a4a4e0a2d0900bef4753db3cee0ee06c7dfae8b1d53b5953218f9cceea695b08668edeaadced9463b1d790d5ebf27e9115b46cad4d9a2b8efab0561b0810344739ada0733f"),
 			E: 0x010001,
 		},
@@ -2932,8 +2932,8 @@ func TestPSSSign_8_5_39(t *testing.T) {
 }
 
 func TestPSSSign_9_1_40(t *testing.T) {
-	priv := &PrivateKey{
-		PublicKey: PublicKey{
+	priv := &rsa.PrivateKey{
+		rsa.PublicKey: rsa.PublicKey{
 			N: fromBase16("e6bd692ac96645790403fdd0f5beb8b9bf92ed10007fc365046419dd06c05c5b5b2f48ecf989e4ce269109979cbb40b4a0ad24d22483d1ee315ad4ccb1534268352691c524f6dd8e6c29d224cf246973aec86c5bf6b1401a850d1b9ad1bb8cbcec47b06f0f8c7f45d3fc8f319299c5433ddbc2b3053b47ded2ecd4a4caefd614833dc8bb622f317ed076b8057fe8de3f84480ad5e83e4a61904a4f248fb397027357e1d30e463139815c6fd4fd5ac5b8172a45230ecb6318a04f1455d84e5a8b"),
 			E: 0x010001,
 		},
@@ -3005,8 +3005,8 @@ func TestPSSSign_9_1_40(t *testing.T) {
 }
 
 func TestPSSSign_9_2_41(t *testing.T) {
-	priv := &PrivateKey{
-		PublicKey: PublicKey{
+	priv := &rsa.PrivateKey{
+		rsa.PublicKey: rsa.PublicKey{
 			N: fromBase16("e6bd692ac96645790403fdd0f5beb8b9bf92ed10007fc365046419dd06c05c5b5b2f48ecf989e4ce269109979cbb40b4a0ad24d22483d1ee315ad4ccb1534268352691c524f6dd8e6c29d224cf246973aec86c5bf6b1401a850d1b9ad1bb8cbcec47b06f0f8c7f45d3fc8f319299c5433ddbc2b3053b47ded2ecd4a4caefd614833dc8bb622f317ed076b8057fe8de3f84480ad5e83e4a61904a4f248fb397027357e1d30e463139815c6fd4fd5ac5b8172a45230ecb6318a04f1455d84e5a8b"),
 			E: 0x010001,
 		},
@@ -3078,8 +3078,8 @@ func TestPSSSign_9_2_41(t *testing.T) {
 }
 
 func TestPSSSign_9_3_42(t *testing.T) {
-	priv := &PrivateKey{
-		PublicKey: PublicKey{
+	priv := &rsa.PrivateKey{
+		rsa.PublicKey: rsa.PublicKey{
 			N: fromBase16("e6bd692ac96645790403fdd0f5beb8b9bf92ed10007fc365046419dd06c05c5b5b2f48ecf989e4ce269109979cbb40b4a0ad24d22483d1ee315ad4ccb1534268352691c524f6dd8e6c29d224cf246973aec86c5bf6b1401a850d1b9ad1bb8cbcec47b06f0f8c7f45d3fc8f319299c5433ddbc2b3053b47ded2ecd4a4caefd614833dc8bb622f317ed076b8057fe8de3f84480ad5e83e4a61904a4f248fb397027357e1d30e463139815c6fd4fd5ac5b8172a45230ecb6318a04f1455d84e5a8b"),
 			E: 0x010001,
 		},
@@ -3151,8 +3151,8 @@ func TestPSSSign_9_3_42(t *testing.T) {
 }
 
 func TestPSSSign_9_4_43(t *testing.T) {
-	priv := &PrivateKey{
-		PublicKey: PublicKey{
+	priv := &rsa.PrivateKey{
+		rsa.PublicKey: rsa.PublicKey{
 			N: fromBase16("e6bd692ac96645790403fdd0f5beb8b9bf92ed10007fc365046419dd06c05c5b5b2f48ecf989e4ce269109979cbb40b4a0ad24d22483d1ee315ad4ccb1534268352691c524f6dd8e6c29d224cf246973aec86c5bf6b1401a850d1b9ad1bb8cbcec47b06f0f8c7f45d3fc8f319299c5433ddbc2b3053b47ded2ecd4a4caefd614833dc8bb622f317ed076b8057fe8de3f84480ad5e83e4a61904a4f248fb397027357e1d30e463139815c6fd4fd5ac5b8172a45230ecb6318a04f1455d84e5a8b"),
 			E: 0x010001,
 		},
@@ -3224,8 +3224,8 @@ func TestPSSSign_9_4_43(t *testing.T) {
 }
 
 func TestPSSSign_9_5_44(t *testing.T) {
-	priv := &PrivateKey{
-		PublicKey: PublicKey{
+	priv := &rsa.PrivateKey{
+		rsa.PublicKey: rsa.PublicKey{
 			N: fromBase16("e6bd692ac96645790403fdd0f5beb8b9bf92ed10007fc365046419dd06c05c5b5b2f48ecf989e4ce269109979cbb40b4a0ad24d22483d1ee315ad4ccb1534268352691c524f6dd8e6c29d224cf246973aec86c5bf6b1401a850d1b9ad1bb8cbcec47b06f0f8c7f45d3fc8f319299c5433ddbc2b3053b47ded2ecd4a4caefd614833dc8bb622f317ed076b8057fe8de3f84480ad5e83e4a61904a4f248fb397027357e1d30e463139815c6fd4fd5ac5b8172a45230ecb6318a04f1455d84e5a8b"),
 			E: 0x010001,
 		},
@@ -3297,8 +3297,8 @@ func TestPSSSign_9_5_44(t *testing.T) {
 }
 
 func TestPSSSign_10_1_45(t *testing.T) {
-	priv := &PrivateKey{
-		PublicKey: PublicKey{
+	priv := &rsa.PrivateKey{
+		rsa.PublicKey: rsa.PublicKey{
 			N: fromBase16("a5dd867ac4cb02f90b9457d48c14a770ef991c56c39c0ec65fd11afa8937cea57b9be7ac73b45c0017615b82d622e318753b6027c0fd157be12f8090fee2a7adcd0eef759f88ba4997c7a42d58c9aa12cb99ae001fe521c13bb5431445a8d5ae4f5e4c7e948ac227d3604071f20e577e905fbeb15dfaf06d1de5ae6253d63a6a2120b31a5da5dabc9550600e20f27d3739e2627925fea3cc509f21dff04e6eea4549c540d6809ff9307eede91fff58733d8385a237d6d3705a33e391900992070df7adf1357cf7e3700ce3667de83f17b8df1778db381dce09cb4ad058a511001a738198ee27cf55a13b754539906582ec8b174bd58d5d1f3d767c613721ae05"),
 			E: 0x010001,
 		},
@@ -3370,8 +3370,8 @@ func TestPSSSign_10_1_45(t *testing.T) {
 }
 
 func TestPSSSign_10_2_46(t *testing.T) {
-	priv := &PrivateKey{
-		PublicKey: PublicKey{
+	priv := &rsa.PrivateKey{
+		rsa.PublicKey: rsa.PublicKey{
 			N: fromBase16("a5dd867ac4cb02f90b9457d48c14a770ef991c56c39c0ec65fd11afa8937cea57b9be7ac73b45c0017615b82d622e318753b6027c0fd157be12f8090fee2a7adcd0eef759f88ba4997c7a42d58c9aa12cb99ae001fe521c13bb5431445a8d5ae4f5e4c7e948ac227d3604071f20e577e905fbeb15dfaf06d1de5ae6253d63a6a2120b31a5da5dabc9550600e20f27d3739e2627925fea3cc509f21dff04e6eea4549c540d6809ff9307eede91fff58733d8385a237d6d3705a33e391900992070df7adf1357cf7e3700ce3667de83f17b8df1778db381dce09cb4ad058a511001a738198ee27cf55a13b754539906582ec8b174bd58d5d1f3d767c613721ae05"),
 			E: 0x010001,
 		},
@@ -3443,8 +3443,8 @@ func TestPSSSign_10_2_46(t *testing.T) {
 }
 
 func TestPSSSign_10_3_47(t *testing.T) {
-	priv := &PrivateKey{
-		PublicKey: PublicKey{
+	priv := &rsa.PrivateKey{
+		rsa.PublicKey: rsa.PublicKey{
 			N: fromBase16("a5dd867ac4cb02f90b9457d48c14a770ef991c56c39c0ec65fd11afa8937cea57b9be7ac73b45c0017615b82d622e318753b6027c0fd157be12f8090fee2a7adcd0eef759f88ba4997c7a42d58c9aa12cb99ae001fe521c13bb5431445a8d5ae4f5e4c7e948ac227d3604071f20e577e905fbeb15dfaf06d1de5ae6253d63a6a2120b31a5da5dabc9550600e20f27d3739e2627925fea3cc509f21dff04e6eea4549c540d6809ff9307eede91fff58733d8385a237d6d3705a33e391900992070df7adf1357cf7e3700ce3667de83f17b8df1778db381dce09cb4ad058a511001a738198ee27cf55a13b754539906582ec8b174bd58d5d1f3d767c613721ae05"),
 			E: 0x010001,
 		},
@@ -3516,8 +3516,8 @@ func TestPSSSign_10_3_47(t *testing.T) {
 }
 
 func TestPSSSign_10_4_48(t *testing.T) {
-	priv := &PrivateKey{
-		PublicKey: PublicKey{
+	priv := &rsa.PrivateKey{
+		rsa.PublicKey: rsa.PublicKey{
 			N: fromBase16("a5dd867ac4cb02f90b9457d48c14a770ef991c56c39c0ec65fd11afa8937cea57b9be7ac73b45c0017615b82d622e318753b6027c0fd157be12f8090fee2a7adcd0eef759f88ba4997c7a42d58c9aa12cb99ae001fe521c13bb5431445a8d5ae4f5e4c7e948ac227d3604071f20e577e905fbeb15dfaf06d1de5ae6253d63a6a2120b31a5da5dabc9550600e20f27d3739e2627925fea3cc509f21dff04e6eea4549c540d6809ff9307eede91fff58733d8385a237d6d3705a33e391900992070df7adf1357cf7e3700ce3667de83f17b8df1778db381dce09cb4ad058a511001a738198ee27cf55a13b754539906582ec8b174bd58d5d1f3d767c613721ae05"),
 			E: 0x010001,
 		},
@@ -3589,8 +3589,8 @@ func TestPSSSign_10_4_48(t *testing.T) {
 }
 
 func TestPSSSign_10_5_49(t *testing.T) {
-	priv := &PrivateKey{
-		PublicKey: PublicKey{
+	priv := &rsa.PrivateKey{
+		rsa.PublicKey: rsa.PublicKey{
 			N: fromBase16("a5dd867ac4cb02f90b9457d48c14a770ef991c56c39c0ec65fd11afa8937cea57b9be7ac73b45c0017615b82d622e318753b6027c0fd157be12f8090fee2a7adcd0eef759f88ba4997c7a42d58c9aa12cb99ae001fe521c13bb5431445a8d5ae4f5e4c7e948ac227d3604071f20e577e905fbeb15dfaf06d1de5ae6253d63a6a2120b31a5da5dabc9550600e20f27d3739e2627925fea3cc509f21dff04e6eea4549c540d6809ff9307eede91fff58733d8385a237d6d3705a33e391900992070df7adf1357cf7e3700ce3667de83f17b8df1778db381dce09cb4ad058a511001a738198ee27cf55a13b754539906582ec8b174bd58d5d1f3d767c613721ae05"),
 			E: 0x010001,
 		},

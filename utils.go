@@ -1,8 +1,8 @@
-package rsa
+package pss
 
 import (
 	"crypto/rand"
-	. "crypto/rsa"
+	"crypto/rsa"
 	"hash"
 	"io"
 	"math/big"
@@ -72,7 +72,7 @@ func modInverse(a, n *big.Int) (ia *big.Int, ok bool) {
 	return x, true
 }
 
-func encrypt(c *big.Int, pub *PublicKey, m *big.Int) *big.Int {
+func encrypt(c *big.Int, pub *rsa.PublicKey, m *big.Int) *big.Int {
 	e := big.NewInt(int64(pub.E))
 	c.Exp(m, e, pub.N)
 	return c
@@ -80,10 +80,10 @@ func encrypt(c *big.Int, pub *PublicKey, m *big.Int) *big.Int {
 
 // decrypt performs an RSA decryption, resulting in a plaintext integer. If a
 // random source is given, RSA blinding is used.
-func decrypt(random io.Reader, priv *PrivateKey, c *big.Int) (m *big.Int, err error) {
+func decrypt(random io.Reader, priv *rsa.PrivateKey, c *big.Int) (m *big.Int, err error) {
 	// TODO(agl): can we get away with reusing blinds?
 	if c.Cmp(priv.N) > 0 {
-		err = ErrDecryption
+		err = rsa.ErrDecryption
 		return
 	}
 
